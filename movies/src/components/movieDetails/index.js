@@ -61,18 +61,19 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
       <Fab
         color="secondary"
         variant="extended"
+        onClick={() =>setDrawerOpen(true)}
         sx={{
-            position: "fixed",
-            bottom: 2,
-            right: 2
+          position: 'fixed',
+          bottom: '1em',
+          right: '1em'
         }}
       >
         <NavigationIcon />
         Reviews
-        </Fab>
-        <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
-          <MovieReviews movie={movie} />
-        </Drawer>
+      </Fab>
+      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+        <MovieReviews movie={movie} />
+      </Drawer>
       </>
   );
 };
