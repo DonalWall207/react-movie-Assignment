@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import { getUpcomingMovies } from "../api/tmdb-api";
-import AddToWatch from '../components/cardIcons/addToWatch'
+import AddToFavoritesIcon from '../components/cardIcons/addToFavorites';
 import Spinner from '../components/spinner';
 import { useQuery } from "react-query";
 
@@ -9,7 +9,7 @@ const upcomingMovies = (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data, error, isLoading, isError } = useQuery('upcoming', getUpcomingMovies)
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [movies, setMovies] = useState([]);
+  
 
   if (isLoading) {
     return <Spinner />
@@ -26,7 +26,7 @@ const upcomingMovies = (props) => {
       title='Upcoming Movies'
       movies={upcomingMovies}
       action={(movie) => {
-        return <AddToWatch movie={movie} />
+        return <AddToFavoritesIcon movie={movie} />
       }}
     />
   );

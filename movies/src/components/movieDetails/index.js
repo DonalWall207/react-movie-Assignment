@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -6,9 +6,13 @@ import MonetizationIcon from "@mui/icons-material/MonetizationOn";
 import StarRate from "@mui/icons-material/StarRate";
 import NavigationIcon from "@mui/icons-material/Navigation";
 import Fab from "@mui/material/Fab";
-import Drawer from "@mui/material/Drawer";
 import Typography from "@mui/material/Typography";
+import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
+import { Link } from "react-router-dom";
+
+
+// A Drawer component is either visible (open) or hidden. We control this with a boolean state variable - drawerOpen.
 
 const root = {
     display: "flex",
@@ -35,18 +39,18 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
 
       <Paper 
         component="ul" 
-        sx={{...root}}
+        sx={root}
       >
         <li>
-          <Chip label="Genres" sx={{...chip}} color="primary" />
+          <Chip label="Genres" sx={chip} color="primary" />
         </li>
         {movie.genres.map((g) => (
           <li key={g.name}>
-            <Chip label={g.name} sx={{...chip}} />
+            <Chip label={g.name} sx={chip} />
           </li>
         ))}
       </Paper>
-      <Paper component="ul" sx={{...root}}>
+      <Paper component="ul" sx={root}>
         <Chip icon={<AccessTimeIcon />} label={`${movie.runtime} min.`} />
         <Chip
           icon={<MonetizationIcon />}
@@ -58,6 +62,26 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         />
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
+      <Paper 
+        component="ul" 
+        sx={root}
+      >
+        <li>
+          <Chip label="Production Countries" sx={chip} color="primary" />
+        </li>
+        {movie.production_countries.map((c) => (
+          <li key={c.name}>
+            <Chip label={c.name} sx={chip} />
+          </li>
+        ))}
+      </Paper>
+      <Link to={`/movies/${movie.id}/similar`}>
+        <button variant="contained"
+          color="primary"
+          style={{ marginTop: '16px' }}>
+          View Similar Movies
+        </button>
+      </Link>
       <Fab
         color="secondary"
         variant="extended"
