@@ -13,19 +13,18 @@ import { MovieActorContext } from "../../contexts/movieActorContext";
 import Avatar from '@mui/material/Avatar';
 
 export default function MovieActorCard({actors,action}){
-const {favorites,addToActorFavorites} = useContext(MovieActorContext);
-console.log(favorites)
+// console.log(favorites)
 
-if (favorites && favorites.find((id) => id === actors.id)) {
-  actors.favourite = true;
-} else {
-  actors.favourite = false;
-}
+// if (favorites && favorites.find((id) => id === actors.id)) {
+//   actors.favourite = true;
+// } else {
+//   actors.favourite = false;
+// }
 
-const handleAddToFavorites = (e) => {
-  e.preventDefault();
-  addToActorFavorites(actors);
-};
+// const handleAddToFavorites = (e) => {
+//   e.preventDefault();
+//   addToActorFavorites(actors);
+// };
 
     return (
         <Card sx={{ maxWidth: 345 }}>

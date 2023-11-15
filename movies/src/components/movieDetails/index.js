@@ -10,6 +10,8 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews";
 import { Link } from "react-router-dom";
+//New  Material UI component added
+import { Button } from "@mui/material";
 
 
 // A Drawer component is either visible (open) or hidden. We control this with a boolean state variable - drawerOpen.
@@ -72,16 +74,19 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         {movie.production_countries.map((c) => (
           <li key={c.name}>
             <Chip label={c.name} sx={chip} />
-          </li>
+          </li>   
         ))}
       </Paper>
-      <Link to={`/movies/${movie.id}/similar`}>
-        <button variant="contained"
-          color="primary"
-          style={{ marginTop: '16px' }}>
-          View Similar Movies
-        </button>
-      </Link>
+      <Link to={`/movies/${movie.id}/similar`} style={{ textDecoration: 'none' }}>
+      <Button variant="contained" color="primary" style={{ marginTop: '16px' }}>
+        View Similar Movies
+      </Button>
+    </Link>
+    <Link to={`https://www.themoviedb.org/movie/${movie.id}/cast`} style={{ textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">
+      <Button variant="contained" color="primary" style={{ marginTop: '16px',marginLeft: '16px' }}>
+        View Full Cast List
+      </Button>
+    </Link>
       <Fab
         color="secondary"
         variant="extended"
