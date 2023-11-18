@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 //new Material UI component
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import MovieIcon from  "@mui/icons-material/Movie"
 // A Drawer component is either visible (open) or hidden. We control this with a boolean state variable - drawerOpen.
 
 const root = {
@@ -24,6 +24,9 @@ const MovieActorDetails = ({ actors }) => {
     <>
       <Typography variant="h5" component="h3">
         {actors.name}
+        <a href={`https://www.imdb.com/name/${actors.imdb_id}`}>
+          <MovieIcon color="primary" />
+        </a>
       </Typography>
 
       <Typography variant="h6" component="p">

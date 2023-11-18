@@ -3,11 +3,13 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterMoviesCard";
 import MovieList from "../movieList";
 import Grid from "@mui/material/Grid";
+import SiteFooter from "../siteFooter"
 
 function MovieListPageTemplate({ movies, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genreId = Number(genreFilter);
+  const [ratingFilter, setRatingFilter] = useState("0");
 
   let displayedMovies = movies
     .filter((m) => {
@@ -15,10 +17,15 @@ function MovieListPageTemplate({ movies, title, action }) {
     })
     .filter((m) => {
       return genreId > 0 ? m.genre_ids.includes(genreId) : true;
+    })
+    .filter((m)=> {
+      return  m.vote_average >= ratingFilter;
     });
 
   const handleChange = (type, value) => {
-    if (type === "name") setNameFilter(value);
+    if(type === "name") setNameFilter(value);
+    if(type === "genre") setGenreFilter(value);
+    if(type === "rating") setRatingFilter(value);
     else setGenreFilter(value);
   };
 
@@ -36,6 +43,9 @@ function MovieListPageTemplate({ movies, title, action }) {
           />
         </Grid>
         <MovieList action={action} movies={displayedMovies}></MovieList>
+      </Grid>
+      <Grid item xs={12} >
+      <SiteFooter size = "large"></SiteFooter>
       </Grid>
     </Grid>
   );

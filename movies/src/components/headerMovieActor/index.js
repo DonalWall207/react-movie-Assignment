@@ -6,9 +6,9 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 
-const MovieActorHeader = (props) => {
-  const title = props.title;
+const MovieActorHeader = (actor) => {
   const navigate = useNavigate();
+
   return (
     <Paper 
         component="div" 
@@ -25,7 +25,7 @@ const MovieActorHeader = (props) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {title}
+        {actor.name}
         <br />
       </Typography>
 
