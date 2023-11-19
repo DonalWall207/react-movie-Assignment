@@ -16,16 +16,6 @@ export default function Footer() {
         console.log("value"+ value)
         
       };
-
-      const styles = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '10vh',
-        color: "white",
-        fontSize: 30,
-      };
-
   return (
     <Paper
       component="div"
@@ -39,7 +29,7 @@ export default function Footer() {
       }}
     >
         <Typography variant="h4" component="h3">
-        <Pagination count = {500} defaultPage={1} page={page} color="secondary" size="large" onChange={handleChange}/>
+        <Pagination count = {500} defaultPage={1} page={page} color="secondary" size="large" onChange={handleChange} />
   </Typography>
     
     </Paper>

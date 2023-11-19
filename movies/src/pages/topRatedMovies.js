@@ -1,12 +1,19 @@
-import React from "react";
+import React,{useContext} from "react";
 import PageTemplate from "../components/templateMovieListPage";
 import { useQuery } from 'react-query'
 import Spinner from '../components/spinner'
 import AddToFavoritesIcon from "../components/cardIcons/addToFavorites";
 import {getTopRatedMovies} from '../api/tmdb-api'
+import { useParams } from "react-router-dom";
+import { MoviesContext } from "../contexts/moviesContext";
 
 const TopRatedMoviesPage = (props) => {
-    const {data, error, isLoading, isError}  = useQuery('toprated', getTopRatedMovies)
+  const {pageNum} = useContext(MoviesContext);
+  const {pageNumber} = useParams();
+  const {  data, error, isLoading, isError }  = useQuery(['toprated',{pageNum:pageNum}], getTopRatedMovies)
+
+  console.log("pageNumber" + pageNumber)
+  
   
     if (isLoading) return <Spinner/>
     if (isError) return <h1>{error.message}</h1>

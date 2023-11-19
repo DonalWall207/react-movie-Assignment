@@ -5,8 +5,9 @@ import Paper from "@mui/material/Paper";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import MovieIcon from  "@mui/icons-material/Movie";
 
-const MovieActorHeader = (actor) => {
+const MovieActorHeader = (actors) => {
   const navigate = useNavigate();
 
   return (
@@ -25,8 +26,11 @@ const MovieActorHeader = (actor) => {
       </IconButton>
 
       <Typography variant="h4" component="h3">
-        {actor.name}
+        {actors.name}
         <br />
+        <a href={`https://www.imdb.com/name/${actors.imdb_id}`}>
+          <MovieIcon color="primary" />
+        </a>
       </Typography>
 
       <IconButton aria-label="go forward" onClick={() => navigate(+1) } >
