@@ -14,6 +14,7 @@ import CalendarIcon from "@mui/icons-material/CalendarTodayTwoTone";
 import StarRateIcon from "@mui/icons-material/StarRate";
 import Grid from "@mui/material/Grid";
 import img from '../../images/film-poster-placeholder.png';
+import AddToWatchIcon from "../cardIcons/addToWatch";
 
 export default function MovieCard({ movie, action }) {
   const { favorites, addToFavorites } = useContext(MoviesContext);
@@ -24,10 +25,26 @@ export default function MovieCard({ movie, action }) {
     movie.favourite = false;
   }
 
+  const { watchlist, addToWatch } = useContext(MoviesContext);
+
+  if (watchlist && watchlist.find((id) => id === movie.id)) {
+    movie.watchlist = true;
+  } else {
+    movie.watchlist = false;
+  }
+
+  
+
   const handleAddToFavorite = (e) => {
     e.preventDefault();
     addToFavorites(movie);
   };
+
+  const handleAddToWatch = (e) => {
+    e.preventDefault();
+    addToWatch(movie);
+  }
+
 
   return (
     <Card sx={{ maxWidth: 345 }}>

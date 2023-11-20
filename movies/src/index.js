@@ -18,6 +18,9 @@ import NowPlayingPage from "./pages/nowPlayingPage";
 import MovieActorsPage from "./pages/movieActorsPage";
 import MovieActorDetailsPage from "./pages/movieActorsDetailsPage";
 import FavoriteMovieActorsPage from "./pages/favoriteMovieActorsPage";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
+import PrivateRoutes from "./components/privateRoutes/"
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,6 +56,8 @@ const App = () => {
           <Route path="/page=:pageNumber" element={<HomePage />} />
           <Route path="/page=:pageNumber" element={<TopRatedMoviesPage />} />
           <Route path="/page=:pageNumber" element={<UpcomingMovies />} />
+          <Route path="/users/signup" element={<SignUpPage />} />
+          <Route path="/users/login" element={<LoginPage />} />
         </Routes>
         </MoviesContextProvider>
       </BrowserRouter>
