@@ -1,102 +1,84 @@
-import React, { useState} from 'react';
-import Avatar from '@mui/material/Avatar';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Card from "@mui/material/Card";
-import { useAuth } from '../contexts/authContext';
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { useNavigate } from 'react-router-dom';
+import { auth } from '../firebase/firebase';
+
 const theme = createTheme();
 
-export default function  Login() {
-  const { login } = useAuth
-  const [error,setError] = useState("")
-  const [loading,setLoading] = useState(false)
-  const [open, setOpen] = React.useState(false);  //NEW
+export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [snackbarInfo, setSnackbarInfo] = useState({ open: false, severity: "success", message: "" });
   const navigate = useNavigate();
-  
-  const handleSnackClose = (event) => {
-    setOpen(false);
+
+  const handleSnackClose = () => {
+    setSnackbarInfo({ ...snackbarInfo, open: false });
   };
-    
-  async function handleSubmit(e) {
 
-    e.preventDefault();
-    setOpen(true)
-    const data = new FormData(e.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
+  const handleSignIn = async () => {
+    setSnackbarInfo({ ...snackbarInfo, open: true, severity: "info", message: "Logging in..." });
 
-    try{
-      setError('')
-      setLoading(true)
-      await login(data.get('email'),data.get('password'))
-      setTimeout(
-      navigate("/"),5000);
-    } catch {
-      setError("Failed to sign in, email or password is incorrect!")
+    try {
+      setError('');
+      setLoading(true);
+
+      // Sign in with email and password using Firebase
+      await auth.signInWithEmailAndPassword(email, password);
+
+      setSnackbarInfo({ open: true, severity: "success", message: "User Logged In!" });
+      setTimeout(() => {
+        navigate('/');
+      }, 5000);
+    } catch (err) {
+      setError('Failed to sign in (email or password is incorrect!)');
+      setSnackbarInfo({ open: true, severity: "error", message: "Failed to sign in!" });
+    } finally {
+      setLoading(false);
     }
-    setLoading(false)
-    
-    
-  }
-  console.log(error)
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <>
-    {error && <Snackbar 
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={open}
-        onClose={handleSnackClose}
+        <Snackbar
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          open={snackbarInfo.open}
+          autoHideDuration={snackbarInfo.severity === "error" ? null : 6000}
+          onClose={handleSnackClose}
         >
-  
-        <Alert onClose={handleSnackClose} severity="error" sx={{ width: '100%' }}>
-          {error}
-        </Alert>
-      
-      </Snackbar>}
-      {!error &&<Snackbar 
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        open={open}
-        onClose={handleSnackClose}
-        >
-        <Alert onClose={handleSnackClose}  severity="success" sx={{ width: '100%' }}>
-          User Logged In!
-          
-        </Alert>
-    
-      </Snackbar>}
+          <Alert onClose={handleSnackClose} severity={snackbarInfo.severity} sx={{ width: "100%" }}>
+            {snackbarInfo.message}
+          </Alert>
+        </Snackbar>
       </>
-    <Card>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Log in
-          </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+
+      <Card>
+        <Container component="main" maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            {/* ... (rest of your code remains the same) */}
+          </Box>
+          {/* ... (rest of your code remains the same) */}
+          <Box component="form" noValidate onSubmit={(e) => { e.preventDefault(); handleSignIn(); }} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <TextField
@@ -106,6 +88,8 @@ export default function  Login() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -117,15 +101,12 @@ export default function  Login() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                 />
               </Grid>
             </Grid>
-            <Button disabled = {loading}
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <Button disabled={loading} type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
               Login
             </Button>
             <Grid container justifyContent="flex-end">
@@ -136,8 +117,7 @@ export default function  Login() {
               </Grid>
             </Grid>
           </Box>
-        </Box>
-      </Container>
+        </Container>
       </Card>
     </ThemeProvider>
   );
