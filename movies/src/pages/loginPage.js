@@ -11,14 +11,14 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Card from "@mui/material/Card";
-import { useAuth } from "../contexts/authContext";
+import { useAuth } from '../contexts/authContext';
 import Snackbar from "@mui/material/Snackbar";
 import Alert from "@mui/material/Alert";
 import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
 export default function  Login() {
-  const { login } = useAuth()
+  const { login } = useAuth
   const [error,setError] = useState("")
   const [loading,setLoading] = useState(false)
   const [open, setOpen] = React.useState(false);  //NEW

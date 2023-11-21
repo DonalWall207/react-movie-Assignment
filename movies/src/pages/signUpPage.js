@@ -18,7 +18,7 @@ import { useNavigate } from 'react-router-dom';
 const theme = createTheme();
 
 export default function  SignUp() {
-  const { signup } = useAuth()
+  const { signup } = useAuth
   const [error,setError] = useState("")
   const [loading,setLoading] = useState(false)
   const [open, setOpen] = React.useState(false);  //NEW
