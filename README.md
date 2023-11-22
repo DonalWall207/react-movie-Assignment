@@ -45,7 +45,7 @@ No non-standerd setup options
 + users/login - Displays a Login Page
 
 ## Images of my pages
-![image](./images/loginpage.png)
+![image](./movies/images/loginpage.png)
 >Login Page taking in email and password. Not fully working
 
 ![image](./images/signuppage.png)
