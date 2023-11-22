@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Assignment 1 - ReactJS app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Name: Donal Wall
 
-## Available Scripts
+## Overview.
 
-In the project directory, you can run:
+This a React App that uses TMDB(The Movie Database) API Key to call over information from this website, and display it in my react app that I created
 
-### `npm start`
+### Features.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
++ New Trending Movies Page
++ New Top Rated Movies page
++ Updated Homepage(With Pagination and New Filtering Options)
++ New Similar Movies Page
++ Movie Actors Page and Move Actors Details Page
++ New Movie Actors Filter
++ Login and SignUp Page Added(Authenication Using Firebase was attempted)
++ An attempt Private Routes added to Movies favorites page
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Setup requirements.
 
-### `npm test`
+No non-standerd setup options
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## API endpoints.
 
-### `npm run build`
++ movies/trending -  A list of trending movies
++ movies/:id/similar - A list of similar movies based on a specifc movie
++ movies/toprated -  A list of the top rated movies of all time
++ movies/now-playing - A list of movies that are now playing in cinemas
++ actors/ - A list of movie actors
++ actors/:id - A Actor details page
++ page=:pageNumber - Used for pagination on the Discover Movies page
++ users/signup - A sign up form
++ users/login - A login Form(Attempted Using Authenication from Firebase)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Routing.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
++ movies/trending - Displays a movies page with trending movies
++ movies/:id/similar - Displays a page of similar movies to a certain movie
++ movies/toprated - Displays a list of top rated movies of all time
++ movies/now-playing - Displays a list of movies playing now in cinemas
++ actors/ - Displays a list of popular movie actors
++ actors/:id - Displays a page with actor details
++ users/signup - Displays a Signup page
++ users/login - Displays a Login Page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Images of my pages
+![image](./images/loginpage.png)
+>Login Page taking in email and password. Not fully working
 
-### `npm run eject`
+![image](./images/signuppage.png)
+>Sign up page taking an email and password. Not fully working
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](./images/updatedhomepage.png)
+>Updated Home Page with Pagination and new filtering options
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](./images/image.png)
+>Pagination on the homepage is showcased here
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](./images/upcomingmoviespage.png)
+>Upcoming movies page
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![image](./images/favouritesmoviepage.png)
+>Favourites Movie page(Private routes not implemented)
 
-## Learn More
+![image](./images/moviedetailspage.png)
+>Updated Movie details page with new buttons
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![image](./images/similarmoviespage.png)
+>New Similar Movies page
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](./images/topratedmovies.png)
+>New Top rated Movies Page
 
-### Code Splitting
+![image](./images/nowplayingpage.png)
+>New Now-Playing movies page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![image](./images/trendingmoviespage.png)
+>New Trending Movies Page
 
-### Analyzing the Bundle Size
+![image](./images/actorslistpage.png)
+>List of popular movie actors
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![image](./images/actordetailspage.png)
+>Specific actor details page
 
-### Making a Progressive Web App
+## Independent learning (If relevant).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Firebase - https://firebase.google.com/docs?gclid=CjwKCAiAksyNBhAPEiwAlDBeLFmJbo_e3-ogmR35UAUMkE9IIanL7VSwEQbkimCxlwelRP1Ae2hmqBoC1H8QAvD_BwE&gclsrc=aw.ds
 
-### Advanced Configuration
+https://firebase.google.com/docs/web/setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Pagination - https://mui.com/material-ui/react-pagination/
 
-### Deployment
+https://hygraph.com/blog/react-pagination
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
