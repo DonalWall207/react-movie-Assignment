@@ -1,22 +1,21 @@
-//same as addToFavourites page with name changes and altered context 
 import React, { useContext } from "react";
-import { MovieActorContext } from "../../contexts/movieActorContext";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { MovieActorContext } from "../../contexts/movieActorContext";
 
-const AddToMovieActorFavoritesIcon = ({ actors }) => {
+const AddToActorFavoritesIcon = ({ actor }) => {
   const context = useContext(MovieActorContext);
 
   const handleAddToFavorites = (e) => {
     e.preventDefault();
-    context.addToActorFavourites(actors);
+    context.addToActorFavorites(actor);
   };
 
   return (
-    <IconButton aria-label="add to favorites" onClick={handleAddToFavorites}>
+    <IconButton aria-label="add to actor favorites" onClick={handleAddToFavorites}>
       <FavoriteIcon color="primary" fontSize="large" />
     </IconButton>
   );
 };
 
-export default AddToMovieActorFavoritesIcon;
+export default AddToActorFavoritesIcon;

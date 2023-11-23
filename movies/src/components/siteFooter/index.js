@@ -3,8 +3,10 @@ import { Pagination } from '@mui/material'
 import { MoviesContext } from '../../contexts/moviesContext';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import { MovieActorContext } from '../../contexts/movieActorContext';
 
 export default function Footer() {
+
     const {setPageNumber,pageNum} = useContext(MoviesContext)
     const [page,setPage] = useState(pageNum);
     

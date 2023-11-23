@@ -75,9 +75,9 @@ export default function Login() {
               alignItems: 'center',
             }}
           >
-            {/* ... (rest of your code remains the same) */}
+            {}
           </Box>
-          {/* ... (rest of your code remains the same) */}
+          {}
           <Box component="form" noValidate onSubmit={(e) => { e.preventDefault(); handleSignIn(); }} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
               <Grid item xs={12}>

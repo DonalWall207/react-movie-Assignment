@@ -4,15 +4,25 @@ export const MovieActorContext = React.createContext(null);
 
 const MovieActorContextProvider = (props) => {
   const [favorites, setFavorites] = useState( [] ) 
+  const [pageNum1, setPageNum1] = useState([])
+
 
   const addToActorFavorites = (actors) => {
-    let newFavorites = [...favorites];
+    if(actors && actors.id){
     if (!favorites.includes(actors.id)) {
-      newFavorites.push(actors.id);
-    }
+      const newFavorites = [...favorites,actors.id];
+      
     setFavorites(newFavorites);
     console.log(newFavorites)
-  };
+  }
+  }
+};
+
+const setPageNumber1 = (num) =>{
+  setPageNum1(num);
+  console.log("PagenumSet"+ num)
+}
+
 
    const removeFromFavorites = (actors) => {
     setFavorites( favorites.filter(
@@ -27,6 +37,8 @@ const MovieActorContextProvider = (props) => {
         favorites,
         addToActorFavorites,
         removeFromFavorites,
+        setPageNumber1,
+        pageNum1,
       }}
     >
       {props.children}

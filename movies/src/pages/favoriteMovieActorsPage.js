@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
-import PageTemplate from "../components/templateMovieActorsListPage";
+import TemplateActorListPage from "../components/templateMovieActorsListPage";
 import { MovieActorContext } from "../contexts/movieActorContext";
 import { useQueries } from "react-query";
 import { getMovieActor } from "../api/tmdb-api";
 import Spinner from '../components/spinner';
-import RemoveFromFavourites from "../components/cardIcons/removeFromMovieActorFavorites";
+import RemoveFromFavorites from "../components/cardIcons/removeFromMovieActorFavorites";
 
-const FavouriteMovieActorsPage = () => {
-  const {favourites: actorsIds } = useContext(MovieActorContext);
+const FavoriteActorsPage = () => {
+  const {favorites: actorsIds } = useContext(MovieActorContext);
 
-  // Create an array of queries and run in parallel.
-  const favouriteMovieActorQueries = useQueries(
+  const favoriteActorQueries = useQueries(
     actorsIds.map((actorsId) => {
       return {
         queryKey: ["actors", { id: actorsId }],
@@ -18,25 +17,23 @@ const FavouriteMovieActorsPage = () => {
       };
     })
   );
-  // Check if any of the parallel queries is still loading.
-  const isLoading = favouriteMovieActorQueries.find((m) => m.isLoading === true);
+  const isLoading = favoriteActorQueries.find((m) => m.isLoading === true);
 
   if (isLoading) {
     return <Spinner />;
   }
 
-   const actors = favouriteMovieActorQueries.map((q) => {
-//     q.data.genre_ids = q.data.genres.map(g => g.id)
+   const actors = favoriteActorQueries.map((q) => {
      return q.data });
 
   return (
-    <PageTemplate
-      title="Favourite Movie Actors"
+    <TemplateActorListPage
+      title="Favorite Actors"
       actors={actors}
       action={(actors) => {
         return (
           <>
-            <RemoveFromFavourites actors={actors} />
+            <RemoveFromFavorites actors={actors} />
           </>
         );
       }}
@@ -44,4 +41,4 @@ const FavouriteMovieActorsPage = () => {
   );
 };
 
-export default FavouriteMovieActorsPage;
+export default FavoriteActorsPage;

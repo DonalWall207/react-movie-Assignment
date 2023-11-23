@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import Chip from "@mui/material/Chip";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 //new Material UI component
 import { Button } from "@mui/material";
 import { Link } from "react-router-dom";
-// A Drawer component is either visible (open) or hidden. We control this with a boolean state variable - drawerOpen.
+import { getActorFilmography } from "../../api/tmdb-api";
+import FilmographyCard from "../filmographyCard";
+import { useQuery } from "react-query";
+import { Grid } from "@mui/material";
+import Drawer from "@mui/material/Drawer";
+
+
 
 const root = {
     display: "flex",
@@ -18,6 +24,17 @@ const root = {
 
 
 const MovieActorDetails = ({ actors }) => { 
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const { data: filmography, isLoading, isError, error } = useQuery(
+    ["filmography", { id: actors.id }], 
+    getActorFilmography
+  );
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error: {error.message}</div>;
+
   
   return (
     <>
@@ -53,7 +70,23 @@ const MovieActorDetails = ({ actors }) => {
       <Button variant="contained" color="primary" style={{ marginTop: '16px' }}>
         Learn More
       </Button>
+      <br/>
     </Link>
+    <br/>
+    <Typography variant="h5" component="h3">
+        Movies {actors.name} has starred in.
+      </Typography>
+      <br/>
+      <Grid container spacing={2}>
+        {filmography && filmography.cast.map((movie) => (
+          <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} xl={2}>
+            <FilmographyCard movie={movie} />
+          </Grid>
+        ))}
+      </Grid>
+
+      <Drawer anchor="top" open={drawerOpen} onClose={() => setDrawerOpen(false)}>
+      </Drawer>
       </>
   );
 };

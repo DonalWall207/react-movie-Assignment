@@ -3,6 +3,7 @@ import Header from "../headerMovieList";
 import FilterCard from "../filterActorsCard";
 import Grid from "@mui/material/Grid";
 import MovieActorList from "../movieActorList";
+import SiteFooter from "../siteFooter";
 
 function MovieActorsListPageTemplate({ actors, title, action }) {
   const [nameFilter, setNameFilter] = useState("");
@@ -29,6 +30,9 @@ function MovieActorsListPageTemplate({ actors, title, action }) {
           />
         </Grid>
         <MovieActorList action={action} actors={displayedMovieActors}></MovieActorList>
+      </Grid>
+      <Grid item xs={12} >
+      <SiteFooter size = "large"></SiteFooter>
       </Grid>
     </Grid>
   );

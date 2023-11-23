@@ -13,6 +13,7 @@ This a React App that uses TMDB(The Movie Database) API Key to call over informa
 + Updated Homepage(With Pagination and New Filtering Options)
 + New Similar Movies Page
 + Movie Actors Page and Move Actors Details Page
++ Movies are linked to specific actors(On Actor Details page)
 + New Movie Actors Filter
 + Login and SignUp Page Added(Authenication Using Firebase was attempted)
 + An attempt Private Routes added to Movies favorites page
@@ -83,6 +84,10 @@ No non-standerd setup options
 
 ![image](./images/actordetailspage.png)
 >Specific actor details page
+
+![image](./images/specificactorfilms.png)
+>Specific actors filmogrophy displayed
+
 
 ## Independent learning (If relevant).
 
