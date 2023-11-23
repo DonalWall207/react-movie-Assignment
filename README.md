@@ -13,6 +13,7 @@ This a React App that uses TMDB(The Movie Database) API Key to call over informa
 + Updated Homepage(With Pagination and New Filtering Options)
 + New Similar Movies Page
 + Movie Actors Page and Move Actors Details Page
++ Movies are linked to specific actors(On Actor Details page)
 + New Movie Actors Filter
 + Login and SignUp Page Added(Authenication Using Firebase was attempted)
 + An attempt Private Routes added to Movies favorites page
@@ -45,44 +46,48 @@ No non-standerd setup options
 + users/login - Displays a Login Page
 
 ## Images of my pages
-![image](./movies/images/loginpage.png)
+![image](./images/loginpage.png)
 >Login Page taking in email and password. Not fully working
 
-![image](./movies/images/signuppage.png)
+![image](./images/signuppage.png)
 >Sign up page taking an email and password. Not fully working
 
-![image](./movies/images/updatedhomepage.png)
+![image](./images/updatedhomepage.png)
 >Updated Home Page with Pagination and new filtering options
 
-![image](./movies/images/image.png)
+![image](./images/image.png)
 >Pagination on the homepage is showcased here
 
-![image](./movies/images/upcomingmoviespage.png)
+![image](./images/upcomingmoviespage.png)
 >Upcoming movies page
 
-![image](./movies/images/favouritesmoviepage.png)
+![image](./images/favouritesmoviepage.png)
 >Favourites Movie page(Private routes not implemented)
 
-![image](./movies/images/moviedetailspage.png)
+![image](./images/moviedetailspage.png)
 >Updated Movie details page with new buttons
 
-![image](./movies/images/similarmoviespage.png)
+![image](./images/similarmoviespage.png)
 >New Similar Movies page
 
-![image](./movies/images/topratedmovies.png)
+![image](./images/topratedmovies.png)
 >New Top rated Movies Page
 
-![image](./movies/images/nowplayingpage.png)
+![image](./images/nowplayingpage.png)
 >New Now-Playing movies page
 
-![image](./movies/images/trendingmoviespage.png)
+![image](./images/trendingmoviespage.png)
 >New Trending Movies Page
 
-![image](./movies/images/actorslistpage.png)
+![image](./images/actorslistpage.png)
 >List of popular movie actors
 
-![image](./movies/images/actordetailspage.png)
+![image](./images/actordetailspage.png)
 >Specific actor details page
+
+![image](./images/specificactorfilms.png)
+>Specific actors filmogrophy displayed
+
 
 ## Independent learning (If relevant).
 
@@ -93,3 +98,4 @@ https://firebase.google.com/docs/web/setup
 Pagination - https://mui.com/material-ui/react-pagination/
 
 https://hygraph.com/blog/react-pagination
+
