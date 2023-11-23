@@ -46,46 +46,46 @@ No non-standerd setup options
 + users/login - Displays a Login Page
 
 ## Images of my pages
-![image](./images/loginpage.png)
+![image](./movies/images/loginpage.png)
 >Login Page taking in email and password. Not fully working
 
-![image](./images/signuppage.png)
+![image](./movies/images/signuppage.png)
 >Sign up page taking an email and password. Not fully working
 
-![image](./images/updatedhomepage.png)
+![image](./movies/images/updatedhomepage.png)
 >Updated Home Page with Pagination and new filtering options
 
-![image](./images/image.png)
+![image](./movies/images/image.png)
 >Pagination on the homepage is showcased here
 
-![image](./images/upcomingmoviespage.png)
+![image](./movies/images/upcomingmoviespage.png)
 >Upcoming movies page
 
-![image](./images/favouritesmoviepage.png)
+![image](./movies/images/favouritesmoviepage.png)
 >Favourites Movie page(Private routes not implemented)
 
-![image](./images/moviedetailspage.png)
+![image](./movies/images/moviedetailspage.png)
 >Updated Movie details page with new buttons
 
-![image](./images/similarmoviespage.png)
+![image](./movies/images/similarmoviespage.png)
 >New Similar Movies page
 
-![image](./images/topratedmovies.png)
+![image](./movies/images/topratedmovies.png)
 >New Top rated Movies Page
 
-![image](./images/nowplayingpage.png)
+![image](./movies/images/nowplayingpage.png)
 >New Now-Playing movies page
 
-![image](./images/trendingmoviespage.png)
+![image](./movies/images/trendingmoviespage.png)
 >New Trending Movies Page
 
-![image](./images/actorslistpage.png)
+![image](./movies/images/actorslistpage.png)
 >List of popular movie actors
 
-![image](./images/actordetailspage.png)
+![image](./movies/images/actordetailspage.png)
 >Specific actor details page
 
-![image](./images/specificactorfilms.png)
+![image](./movies/images/specificactorfilms.png)
 >Specific actors filmogrophy displayed
 
 
