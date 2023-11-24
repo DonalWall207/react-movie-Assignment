@@ -29,7 +29,7 @@ No non-standerd setup options
 + movies/toprated -  A list of the top rated movies of all time
 + movies/now-playing - A list of movies that are now playing in cinemas
 + actors/ - A list of movie actors
-+ actors/:id - A Actor details page
++ actors/:id - A Actor details page, and the movies they are in (filmogrophy)
 + page=:pageNumber - Used for pagination on the Discover Movies page
 + users/signup - A sign up form
 + users/login - A login Form(Attempted Using Authenication from Firebase)
@@ -41,7 +41,7 @@ No non-standerd setup options
 + movies/toprated - Displays a list of top rated movies of all time
 + movies/now-playing - Displays a list of movies playing now in cinemas
 + actors/ - Displays a list of popular movie actors
-+ actors/:id - Displays a page with actor details
++ actors/:id - Displays a page with actor details and the movies they are in (filmogrophy)
 + users/signup - Displays a Signup page
 + users/login - Displays a Login Page
 
@@ -51,6 +51,9 @@ No non-standerd setup options
 
 ![image](./movies/images/signuppage.png)
 >Sign up page taking an email and password. Not fully working
+
+![image](./images/firebase%20screenschot.png)
+>Firebase React App Image
 
 ![image](./movies/images/updatedhomepage.png)
 >Updated Home Page with Pagination and new filtering options

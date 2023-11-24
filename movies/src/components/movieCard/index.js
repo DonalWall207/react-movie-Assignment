@@ -47,7 +47,7 @@ export default function MovieCard({ movie, action }) {
 
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, border: '2px solid black', borderRadius: '5px', transition: 'transform 0.15s ease-in-out', '&:hover': {transform: 'scale(1.03)'}}}>
       <CardHeader
         avatar={
           movie.favourite ? (

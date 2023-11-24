@@ -17,7 +17,7 @@ export default function FilmographyCard({ movie }) {
       };
 
       return (
-        <Card sx={{ width: '100%', maxWidth: 400 }}>
+        <Card sx={{ maxWidth: 345, border: '2px solid black', borderRadius: '5px', transition: 'transform 0.15s ease-in-out', '&:hover': {transform: 'scale(1.03)'}}}>
           <CardMedia
             sx={{ height: 500 }}
             image={
