@@ -52,7 +52,7 @@ No non-standerd setup options
 ![image](./movies/images/signuppage.png)
 >Sign up page taking an email and password. Not fully working
 
-![image](./images/firebase%20screenschot.png)
+![image](./movies/images/firebase%20screenschot.png)
 >Firebase React App Image
 
 ![image](./movies/images/updatedhomepage.png)
